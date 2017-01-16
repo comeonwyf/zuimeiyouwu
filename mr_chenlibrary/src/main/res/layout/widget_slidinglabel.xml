@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.qf.chenhao.mr_chenlibrary.widget.slidinglabel.SlidingLabelView
+        android:id="@+id/slv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:padding="5dp" />
+
+    <!-- -->
+    <com.qf.chenhao.mr_chenlibrary.widget.slidinglabel.LabelView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>
