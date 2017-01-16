@@ -37,10 +37,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.magazine:
                 showFragment(R.id.fl,new MagazineFragment());
                 break;
-            case R.id.designer:
-                showFragment(R.id.fl,new DesignerFragment());
             case R.id.discover:
                 showFragment(R.id.fl,new YouWuFragment());
+                break;
+            case R.id.designer:
+                showFragment(R.id.fl,new DesignerFragment());
+                break;
 
         }
     }
