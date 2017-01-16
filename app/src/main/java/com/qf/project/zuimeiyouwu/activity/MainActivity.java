@@ -6,6 +6,7 @@ import android.widget.RadioGroup;
 
 import com.qf.chenhao.mr_chenlibrary.base.BaseActivity;
 import com.qf.project.zuimeiyouwu.R;
+import com.qf.project.zuimeiyouwu.fragment.DesignerFragment;
 import com.qf.project.zuimeiyouwu.fragment.MagazineFragment;
 
 import butterknife.Bind;
@@ -25,6 +26,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void init() {
         group.setOnCheckedChangeListener(this);
+        //默认加载第一个fragment
+        group.getChildAt(0).performClick();
     }
 
     @Override
@@ -33,6 +36,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.magazine:
                 showFragment(R.id.fl,new MagazineFragment());
                 break;
+            case R.id.designer:
+                showFragment(R.id.fl,new DesignerFragment());
         }
     }
 }
