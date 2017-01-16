@@ -1,1 +1,1 @@
-include ':app', ':mr_chenlibrary'
+include ':app', ':mr_chenlibrary', ':deckview'
