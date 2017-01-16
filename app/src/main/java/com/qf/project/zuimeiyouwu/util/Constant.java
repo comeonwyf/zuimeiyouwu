@@ -5,4 +5,6 @@ package com.qf.project.zuimeiyouwu.util;
  */
 public interface Constant {
     String HUABAO_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?page=1&is_new_user=false&page_size=30&user_id=0&device_id=861423034616922&platform=android&lang=zh&appVersion=1.2.6&appVersionCode=10260&systemVersion=23&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
+    //有物-导航标题
+    String TAB_URL = "http://design.zuimeia.com/api/v1/product/categories/?device_id=864394010282103&platform=android&lang=zh&appVersion=1.2.6&appVersionCode=10260&systemVersion=19&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
 }

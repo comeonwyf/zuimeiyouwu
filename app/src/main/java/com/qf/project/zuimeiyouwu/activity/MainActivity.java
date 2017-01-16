@@ -31,6 +31,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         group.getChildAt(0).performClick();
     }
 
+    //关闭沉浸式
+    @Override
+    protected boolean isOpenStatus() {
+        return false;
+    }
+
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId){
