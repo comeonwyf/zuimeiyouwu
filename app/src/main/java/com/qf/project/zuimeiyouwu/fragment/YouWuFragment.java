@@ -61,7 +61,6 @@ public class YouWuFragment extends BaseFragment{
         layoutParams.leftMargin = screenWidth/35;
         titlesContainer.setLayoutParams(layoutParams);
         titlesContainerLeftMargin = layoutParams.leftMargin;
-        Log.e(TAG, "init: "+titlesContainerLeftMargin);
 
         //导航Scrollview
         horizontalScrollView = findViewByIds(view, R.id.actionbar);
@@ -94,6 +93,8 @@ public class YouWuFragment extends BaseFragment{
     private void setViewPager(FragmentManager fragmentManager, final List<TabEntity> tabEntityList) {
         YouWuFragmentViewPagerAdapter adapter = new YouWuFragmentViewPagerAdapter(fragmentManager,tabEntityList);
         viewPager.setAdapter(adapter);
+
+        //设置导航滑块
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {//设置监听
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
