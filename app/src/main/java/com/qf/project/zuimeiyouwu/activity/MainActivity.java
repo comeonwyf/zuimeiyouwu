@@ -1,18 +1,12 @@
 package com.qf.project.zuimeiyouwu.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.RadioGroup;
-
 import com.qf.chenhao.mr_chenlibrary.base.BaseActivity;
 import com.qf.project.zuimeiyouwu.R;
 import com.qf.project.zuimeiyouwu.fragment.DesignerFragment;
 import com.qf.project.zuimeiyouwu.fragment.MagazineFragment;
 import com.qf.project.zuimeiyouwu.fragment.MineFragment;
 import com.qf.project.zuimeiyouwu.fragment.YouWuFragment;
-
-import java.text.SimpleDateFormat;
 
 import butterknife.Bind;
 
