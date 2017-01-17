@@ -35,7 +35,7 @@ public class TabEntity implements Serializable{
         return sub_categories;
     }
 
-    public static class SubCategoriesEntity {
+    public static class SubCategoriesEntity implements Serializable{
         private int id;
         private String name;
 
