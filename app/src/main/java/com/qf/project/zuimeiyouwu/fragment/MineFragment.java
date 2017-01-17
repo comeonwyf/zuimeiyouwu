@@ -1,5 +1,7 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.View;
@@ -39,7 +41,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void init(View view) {
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/FZLanTingHeiS_Regular.otf");
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/FZLanTingHeiS_Regular.otf");
         //设置字体风格
         daily.setTypeface(typeface);
         attention.setTypeface(typeface);
