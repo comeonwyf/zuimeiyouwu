@@ -6,6 +6,9 @@
     <color name="black">#000000</color>
     <color name="gray">#8888</color>
     <!--导航栏背景的黑色-->
-    <color name="tab_bg_back">#2d2c2c</color>
+    <color name="tab_bg_black">#050404</color>
     <color name="white">#fff</color>
+    <color name="tab_subtitle_bg_black">#605e5e</color>
+    <color name="product_nametext_white">#9A9A9A</color>
+    <color name="product_bg_text_black">#050404</color>
 </resources>

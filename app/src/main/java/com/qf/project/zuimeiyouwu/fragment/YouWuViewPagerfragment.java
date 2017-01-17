@@ -1,18 +1,20 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import com.qf.chenhao.mr_chenlibrary.base.BaseFragment;
+import com.qf.project.zuimeiyouwu.Entity.ProductListEntity;
 import com.qf.project.zuimeiyouwu.Entity.TabEntity;
 import com.qf.project.zuimeiyouwu.R;
 import com.qf.project.zuimeiyouwu.adapter.YouWuProductListAdapter;
 import com.qf.project.zuimeiyouwu.util.Constant;
+import com.qf.project.zuimeiyouwu.util.JsonUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -64,11 +66,12 @@ public class YouWuViewPagerfragment extends BaseFragment {
                 @Override
                 public void onResponse(String response, int id) {
                     //获得产品列表
-                    Log.e("print", "onResponse: "+response );
+                    List<ProductListEntity> productList = JsonUtil.getProductListByJSON(response);
+                    YouWuProductListAdapter adapter = new YouWuProductListAdapter(getContext(),productList);
+                    listView.setAdapter(adapter);
                 }
             });
-            YouWuProductListAdapter adapter = new YouWuProductListAdapter();
-            listView.setAdapter(adapter);
+
         }
 
     }

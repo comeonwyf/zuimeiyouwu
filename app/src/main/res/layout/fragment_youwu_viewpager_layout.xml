@@ -6,7 +6,7 @@
         android:id="@+id/subtitle_container"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#605e5e">
+        android:background="@color/tab_subtitle_bg_black">
         <TextView
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
@@ -28,5 +28,6 @@
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
+        android:divider="@null"
         android:layout_height="match_parent"></ListView>
 </LinearLayout>
