@@ -1,6 +1,6 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
-import android.graphics.Color;
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;

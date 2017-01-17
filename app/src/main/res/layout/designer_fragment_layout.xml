@@ -10,6 +10,7 @@
     app:tabSelectedTextColor="@color/white"
     app:tabTextColor="#888"
     app:tabIndicatorColor="#fff"
+
     android:background="@color/black"
     android:scrollbarTrackHorizontal="@color/white"
     android:layout_height="?actionBarSize">
