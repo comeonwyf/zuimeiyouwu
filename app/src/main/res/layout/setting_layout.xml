@@ -7,7 +7,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#Ff000000">
+        android:background="#000000">
 
         <TextView
             android:layout_width="wrap_content"
