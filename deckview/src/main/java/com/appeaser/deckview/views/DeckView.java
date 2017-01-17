@@ -79,13 +79,15 @@ public class DeckView<T> extends FrameLayout implements /*TaskStack.TaskStackCal
     }
 
     public DeckView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        this(context, attrs, defStyleAttr,0);
+
     }
 
     public DeckView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         DeckViewConfig.reinitialize(getContext());
         mConfig = DeckViewConfig.getInstance();
+
     }
 
     public void initialize(Callback<T> callback) {

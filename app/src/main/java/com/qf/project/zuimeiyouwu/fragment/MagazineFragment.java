@@ -83,23 +83,19 @@ public class MagazineFragment extends BaseFragment {
             public void loadViewData(WeakReference<DeckChildView<Datum>> dcv, Datum item) {
                 loadViewDataInternal(item,dcv);
             }
-
             @Override
             public void unloadViewData(Datum item) {
                 Picasso.with(getContext()).cancelRequest(item.target);
             }
-
             @Override
             public void onViewDismissed(Datum item) {
                 mList.remove(item);
                 mDeckView.notifyDataSetChanged();
             }
-
             @Override
             public void onItemClick(Datum item) {
 
             }
-
             @Override
             public void onNoViewsToDeck() {
                 downLoadData();
