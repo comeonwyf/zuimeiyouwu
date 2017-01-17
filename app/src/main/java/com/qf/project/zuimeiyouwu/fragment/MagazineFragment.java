@@ -186,7 +186,7 @@ public class MagazineFragment extends BaseFragment {
                             datum.avatar_url = jb4.getString("avatar_url");
                             datum.sign = jb4.getString("sign");
                             datum.num = jb3.getString("id");
-                            //         mEntries.add(datum);
+
                             mList.add(0, datum);
                         }
                         mDeckView.notifyDataSetChanged();
