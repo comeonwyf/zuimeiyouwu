@@ -11,6 +11,7 @@ public class DesignerViewPagerFragment extends BaseFragment {
        DesignerViewPagerFragment fragment=new DesignerViewPagerFragment();
        return fragment;
    }
+    /*hhhh*/
     @Override
     protected int getContentId() {
         return R.layout.designer_viewpager_fragment_layout;
