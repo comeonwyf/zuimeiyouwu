@@ -26,7 +26,7 @@
                 android:id="@+id/indicator_tab"
                 android:layout_marginLeft="20dp"
                 android:background="#fff"
-                android:layout_width="13dp"
+                android:layout_width="0dp"
                 android:layout_height="2dp" />
         </LinearLayout>
 
