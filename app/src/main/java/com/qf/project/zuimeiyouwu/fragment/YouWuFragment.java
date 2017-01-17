@@ -1,6 +1,8 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -132,8 +134,11 @@ public class YouWuFragment extends BaseFragment{
     }
     //设置tabtitles
     private void setTabTitles(List<TabEntity> tabEntityList) {
+        AssetManager assets = getContext().getAssets();
+        Typeface fromAsset2 = Typeface.createFromAsset(assets, "fonts/FZLanTingHeiS_Regular.otf");
         for (int i = 0; i < tabEntityList.size(); i++) {
             TextView titleView = new TextView(getContext());
+            titleView.setTypeface(fromAsset2);
             titleView.setTag(i);
             titleView.setTextSize(textSetSize);
             titleView.setTextColor(Color.parseColor("#ffffffff"));

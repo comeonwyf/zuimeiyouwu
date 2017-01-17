@@ -26,17 +26,17 @@
         android:background="@color/tab_subtitle_bg_black"
         android:layout_width="match_parent"
         android:layout_height="80sp">
-        <com.qf.project.zuimeiyouwu.util.MyCircleBitmapView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/author_log"
             android:layout_marginLeft="15sp"
             android:layout_centerVertical="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/man_unselected"/>
-
             <TextView
                 android:id="@+id/author"
                 android:paddingTop="3dp"
+                android:singleLine="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/author_log"
                 android:layout_alignTop="@+id/author_log"
@@ -55,9 +55,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:paddingBottom="3dp"
+                android:singleLine="true"
                 android:textColor="@color/product_nametext_white"
                 android:text="创始人"/>
         <LinearLayout
+            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal"
@@ -70,9 +72,13 @@
                 android:src="@drawable/feed_dislike"/>
             <ImageView
                 android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/abc"/>
+                android:background="#616060"/>
             <ImageView
                 android:id="@+id/like_iv"
                 android:layout_width="wrap_content"
