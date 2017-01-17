@@ -9,6 +9,7 @@ import com.qf.chenhao.mr_chenlibrary.base.BaseActivity;
 import com.qf.project.zuimeiyouwu.R;
 import com.qf.project.zuimeiyouwu.fragment.DesignerFragment;
 import com.qf.project.zuimeiyouwu.fragment.MagazineFragment;
+import com.qf.project.zuimeiyouwu.fragment.MineFragment;
 import com.qf.project.zuimeiyouwu.fragment.YouWuFragment;
 
 import java.text.SimpleDateFormat;
@@ -48,6 +49,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.discover:
                 showFragment(R.id.fl,new YouWuFragment());
+                break;
+            case R.id.mine:
+                showFragment(R.id.fl,new MineFragment());
                 break;
 
         }
