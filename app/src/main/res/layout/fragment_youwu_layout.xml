@@ -2,29 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <!--导航控件-->
-    <LinearLayout
+    <HorizontalScrollView
         android:id="@+id/actionbar"
-        android:orientation="vertical"
-        android:background="#000"
+        android:background="@color/tab_bg_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--titles部分-->
         <LinearLayout
-            android:id="@+id/titles_tab"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="40dp">
+            android:layout_height="match_parent">
+            <!--titles部分-->
+            <LinearLayout
+                android:id="@+id/titles_tab"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp">
+            </LinearLayout>
+            <!--指示器部分-->
+            <View
+                android:id="@+id/indicator_tab"
+                android:layout_marginLeft="20dp"
+                android:background="#fff"
+                android:layout_width="13dp"
+                android:layout_height="2dp" />
         </LinearLayout>
-        <!--指示器部分-->
-        <View
-            android:id="@+id/indicator_tab"
-            android:layout_marginLeft="20dp"
-            android:background="#fff"
-            android:layout_width="13dp"
-            android:layout_height="2dp" />
-    </LinearLayout>
+
+    </HorizontalScrollView>
 
 
     <!--有物fragment的viewpager-->
