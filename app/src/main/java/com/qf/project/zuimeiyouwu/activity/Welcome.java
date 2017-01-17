@@ -26,7 +26,6 @@ public class Welcome extends BaseActivity {
             public void run() {
                 startActivity(new Intent(Welcome.this, MainActivity.class));
                 finish();
-
             }
         }, 1000);
     }
