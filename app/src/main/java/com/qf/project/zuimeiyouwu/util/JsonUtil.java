@@ -2,29 +2,18 @@ package com.qf.project.zuimeiyouwu.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.qf.project.zuimeiyouwu.Entity.HuaBao;
 import com.qf.project.zuimeiyouwu.Entity.TabEntity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/1/16.
  */
 public class JsonUtil {
-    /**
-     * 获得画报的数据实体类
-     * @param json
-     * @return
-     */
-    public static HuaBao getHuaBaoByJSON(String json){
-        HuaBao huaBao = new Gson().fromJson(json,HuaBao.class);
-        return huaBao;
-    }
 
     /**
      * 获得导航标题的方法
