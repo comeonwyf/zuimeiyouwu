@@ -1,5 +1,6 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 
 import com.qf.chenhao.mr_chenlibrary.base.BaseFragment;
 import com.qf.project.zuimeiyouwu.R;
+import com.qf.project.zuimeiyouwu.activity.Setting;
 
 import butterknife.Bind;
 
@@ -52,6 +54,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        startActivity(new Intent(getActivity(), Setting.class));
     }
 }
