@@ -2,8 +2,10 @@ package com.qf.project.zuimeiyouwu.fragment;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +35,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     public TextView zuimei;
     @Bind(R.id.setting)
     public ImageView setting;
+    @Bind(R.id.login)
+    public ImageView login;
+    @Bind(R.id.mine_portrait)
+    public ImageView portrait;
 
     @Override
     protected int getContentId() {
@@ -52,10 +58,26 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
         //点击事件
         setting.setOnClickListener(this);
+        portrait.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(getActivity(), Setting.class));
+        switch (v.getId()) {
+            case R.id.setting:
+                startActivity(new Intent(getActivity(), Setting.class));
+                break;
+            case R.id.mine_portrait:
+                customDiaolog();
+                break;
+        }
+    }
+    //自定义登陆对话框
+    private void customDiaolog() {
+        AlertDialog.Builder custom = new AlertDialog.Builder(getContext());
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.login_alertdialog_layout, null);
+        custom.setView(view);
+        custom.show();
+
     }
 }
