@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-
 import com.qf.chenhao.mr_chenlibrary.base.BaseFragment;
 import com.qf.project.zuimeiyouwu.Entity.DesignerEntity;
 import com.qf.project.zuimeiyouwu.R;
@@ -47,7 +46,6 @@ public class DesignerFragment extends BaseFragment{
                     public void onError(Call call, Exception e, int id) {
 
                     }
-
                     @Override
                     public void onResponse(String response, int id) {
                         DesignerEntity designerByJson = JsonUtil.getDesignerByJson(response);
@@ -57,9 +55,6 @@ public class DesignerFragment extends BaseFragment{
 
                         //必须在viewpager设置了适配器后调用
                         tabLayout.setupWithViewPager(designerVp);
-
-
-
                     }
                 });
 
