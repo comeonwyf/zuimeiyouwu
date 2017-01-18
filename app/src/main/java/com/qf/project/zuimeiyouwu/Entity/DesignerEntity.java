@@ -59,7 +59,7 @@ public class DesignerEntity implements Serializable {
         this.categories = categories;
     }
 
-    public static class DesignersBean {
+    public static class DesignersBean implements Serializable {
         private int follow_num;
         private String city;
         private String concept;
@@ -147,7 +147,7 @@ public class DesignerEntity implements Serializable {
             this.categories = categories;
         }
 
-        public static class CategoriesBean {
+        public static class CategoriesBean implements Serializable {
             private int id;
             private String name;
 
@@ -192,7 +192,7 @@ public class DesignerEntity implements Serializable {
         }
     }
 
-    public static class CategoriesBean {
+    public static class CategoriesBean implements Serializable{
         private int id;
         private String name;
 

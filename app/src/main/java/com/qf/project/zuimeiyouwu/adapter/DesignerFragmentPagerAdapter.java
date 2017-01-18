@@ -13,14 +13,15 @@ import com.qf.project.zuimeiyouwu.util.Constant;
  */
 public class DesignerFragmentPagerAdapter extends FragmentStatePagerAdapter {
     DesignerEntity data;
+
     public DesignerFragmentPagerAdapter(FragmentManager fm, DesignerEntity data) {
         super(fm);
-        this.data=data;
+        this.data = data;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return DesignerViewPagerFragment.getInstance();
+        return DesignerViewPagerFragment.getInstance(data);
     }
 
     @Override
