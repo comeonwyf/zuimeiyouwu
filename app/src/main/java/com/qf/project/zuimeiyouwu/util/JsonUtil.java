@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import com.qf.project.zuimeiyouwu.Entity.DesignerEntity;
+import com.qf.project.zuimeiyouwu.Entity.HuaBaoContentEntity;
 import com.qf.project.zuimeiyouwu.Entity.ProductListEntity;
 import com.qf.project.zuimeiyouwu.Entity.TabEntity;
 
@@ -62,5 +63,15 @@ public class JsonUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 获取画报详情实体类对象
+     * @param json
+     * @return
+     */
+    public static HuaBaoContentEntity getHuaBaoContentByJSON(String json){
+        HuaBaoContentEntity huaBaoContent = new Gson().fromJson(json,HuaBaoContentEntity.class);
+        return huaBaoContent;
     }
 }

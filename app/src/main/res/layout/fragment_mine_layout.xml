@@ -44,6 +44,7 @@
             </FrameLayout>
 
             <RelativeLayout
+                android:id="@+id/click_daily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -77,6 +78,7 @@
                 android:background="#888888" />
 
             <RelativeLayout
+                android:id="@+id/click_attention"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -110,6 +112,7 @@
                 android:background="#888888" />
 
             <RelativeLayout
+                android:id="@+id/click_wish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -143,6 +146,7 @@
                 android:background="#888888" />
 
             <RelativeLayout
+                android:id="@+id/click_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -177,6 +181,7 @@
                 android:background="#888888" />
 
             <RelativeLayout
+                android:id="@+id/click_feedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -210,6 +215,7 @@
                 android:background="#888888" />
 
             <RelativeLayout
+                android:id="@+id/click_zuimei"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
