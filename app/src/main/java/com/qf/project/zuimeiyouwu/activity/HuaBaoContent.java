@@ -1,7 +1,6 @@
 package com.qf.project.zuimeiyouwu.activity;
 
 import android.content.Intent;
-import android.provider.DocumentsContract;
 import android.util.Log;
 import android.webkit.WebView;
 import android.widget.ImageView;

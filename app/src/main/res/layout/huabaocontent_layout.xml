@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,12 +17,12 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="17dp"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
                 android:layout_marginTop="70dp"
+                android:gravity="center"
                 android:text="盼风铃响起，能留你在此"
                 android:textColor="#000000"
                 android:textSize="20sp" />
@@ -81,13 +83,118 @@
 
             <WebView
                 android:id="@+id/web_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="20dp">
 
             </WebView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                android:background="#888888" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="13dp"
+                android:layout_marginTop="13dp"
+                android:text="成为最美的作者"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有你自己喜欢的独特品牌？" />
+
+            <TextView
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="希望分享给大家，找到品位相投的伙伴？" />
+
+            <TextView
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这里就是你的发布台" />
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:background="#000000"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="申请成为作者"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="25dp"
+                android:background="#888888" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:text="分享这篇文章"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="55sp"
+                android:layout_marginRight="55dp">
+                <TextView
+                    android:id="@+id/sina"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/share_sina_normal"
+                    android:gravity="center_horizontal"
+                    android:text="新浪微博" />
+
+                <TextView
+                    android:id="@+id/qq"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/share_qq_normal"
+                    android:gravity="center_horizontal"
+                    android:text="QQ" />
+
+                <TextView
+                    android:id="@+id/weixin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/share_weixin_normal"
+                    android:gravity="center_horizontal"
+                    android:text="微信" />
+            </LinearLayout>
 
         </LinearLayout>
 
