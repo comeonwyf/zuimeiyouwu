@@ -1,7 +1,9 @@
 package com.qf.project.zuimeiyouwu.activity;
 
 import android.content.Intent;
+import android.provider.DocumentsContract;
 import android.util.Log;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,11 @@ import com.qf.project.zuimeiyouwu.R;
 import com.qf.project.zuimeiyouwu.util.Constant;
 import com.qf.project.zuimeiyouwu.util.JsonUtil;
 import com.qf.project.zuimeiyouwu.util.StringObjectRequest;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import butterknife.Bind;
 
@@ -37,6 +44,8 @@ public class HuaBaoContent extends BaseActivity {
     public TextView author;
     @Bind(R.id.sign)
     public TextView sign;
+    @Bind(R.id.web_content)
+    public WebView webView;
 
     private static final String TAG = "print";
     private String url;
@@ -77,6 +86,8 @@ public class HuaBaoContent extends BaseActivity {
 
                 author.setText(huaBaoContent.getData().getAuthor().getUsername());
                 sign.setText(huaBaoContent.getData().getAuthor().getSign());
+                //设置详情webview展示
+                webView.loadDataWithBaseURL("about:blank",getNewContent(huaBaoContent.getData().getContent()),"text/html","utf-8","");
 
 
             }
@@ -87,6 +98,20 @@ public class HuaBaoContent extends BaseActivity {
             }
         });
         AppContext.getQueue().add(request);
+    }
+
+    /**
+     *装换url
+     * @param htmlText
+     * @return
+     */
+    private String getNewContent(String htmlText) {
+        Document doc = Jsoup.parse(htmlText);
+        Elements img = doc.getElementsByTag("img");
+        for (Element element :img){
+            element.attr("width","100%").attr("height","auto");
+        }
+        return doc.toString();
     }
 
     @Override
