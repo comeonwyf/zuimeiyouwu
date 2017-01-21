@@ -23,12 +23,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import de.halfbit.pinnedsection.PinnedSectionListView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Administrator on 2017/1/17.
  */
-public class YouWuProductListAdapter extends BaseAdapter {
+public class YouWuProductListAdapter extends BaseAdapter{
 
     private final Context context;
     private final List<ProductListEntity> productList;
@@ -107,6 +108,7 @@ public class YouWuProductListAdapter extends BaseAdapter {
         viewHolder.authorDescriptionView.setText(productList.get(position).getDesigner().getLabel());
         return convertView;
     }
+
     class ViewHolder{
         ImageView productImgView;
         TextView productNameView;

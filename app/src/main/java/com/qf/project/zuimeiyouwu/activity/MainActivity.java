@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId){
             case R.id.magazine:
-                showFragment(R.id.fl,new MagazineFragment());
+//                showFragment(R.id.fl,new MagazineFragment());
                 break;
             case R.id.designer:
                 showFragment(R.id.fl,new DesignerFragment());
