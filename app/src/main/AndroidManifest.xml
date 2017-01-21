@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Setting"/>
+        <activity android:name=".activity.XieYiActivity"/>
+        <activity android:name=".activity.HuaBaoContent"/>
     </application>
 
 

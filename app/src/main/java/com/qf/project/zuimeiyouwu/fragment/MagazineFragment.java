@@ -1,5 +1,6 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,6 +18,7 @@ import com.qf.chenhao.mr_chenlibrary.base.BaseFragment;
 import com.qf.project.zuimeiyouwu.AppContext;
 import com.qf.project.zuimeiyouwu.Entity.Datum;
 import com.qf.project.zuimeiyouwu.R;
+import com.qf.project.zuimeiyouwu.activity.HuaBaoContent;
 import com.qf.project.zuimeiyouwu.util.Constant;
 import com.qf.project.zuimeiyouwu.util.StringObjectRequest;
 import com.squareup.picasso.Picasso;
@@ -94,7 +96,9 @@ public class MagazineFragment extends BaseFragment {
             }
             @Override
             public void onItemClick(Datum item) {
-
+                Intent intent = new Intent(getActivity(), HuaBaoContent.class);
+                intent.putExtra("id",item.num);
+                startActivity(intent);
             }
             @Override
             public void onNoViewsToDeck() {

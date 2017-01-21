@@ -1,5 +1,7 @@
 package com.qf.project.zuimeiyouwu.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +30,8 @@ public class Setting extends BaseActivity implements View.OnClickListener {
     public TextView haoping;
     @Bind(R.id.tuijian)
     public TextView tuijian;
+    @Bind(R.id.text)
+    public TextView text;
     @Bind(R.id.us)
     public TextView us;
 
@@ -47,11 +51,36 @@ public class Setting extends BaseActivity implements View.OnClickListener {
         haoping.setTypeface(typeface);
         tuijian.setTypeface(typeface);
         us.setTypeface(typeface);
+
+        clear.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        finish();
+        switch (v.getId()){
+            case R.id.back:
+                finish();
+                break;
+            case R.id.clear:
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("确定清楚缓存吗？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                text.setText("0.0MB");
+                                dialog.dismiss();
+                            }
+                        });
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+
+                break;
+        }
     }
 
     @Override
