@@ -18,12 +18,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.qf.chenhao.mr_chenlibrary.util.ScreenUtil;
 import com.qf.project.zuimeiyouwu.Entity.ProductListEntity;
 import com.qf.project.zuimeiyouwu.R;
-import com.qf.project.zuimeiyouwu.util.MyCircleBitmapView;
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
-import de.halfbit.pinnedsection.PinnedSectionListView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -31,22 +27,23 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class YouWuProductListAdapter extends BaseAdapter{
 
-    private final Context context;
-    private final List<ProductListEntity> productList;
+    private  List<ProductListEntity.DataEntity.ProductsEntity> products;
+    private  Context context;
 
-    public YouWuProductListAdapter(Context context, List<ProductListEntity> productList) {
+    public YouWuProductListAdapter(Context context, List<ProductListEntity.DataEntity.ProductsEntity> products) {
         this.context = context;
-        this.productList = productList;
+        this.products = products;
     }
+
 
     @Override
     public int getCount() {
-        return productList.size();
+        return products.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return productList.get(position);
+        return products.get(position);
     }
 
     @Override
@@ -76,9 +73,9 @@ public class YouWuProductListAdapter extends BaseAdapter{
             viewHolder = (ViewHolder) convertView.getTag();
         }
         final ImageView iv = viewHolder.productImgView;
-        iv.setTag(productList.get(position).getCover_images().get(0));
+        iv.setTag(products.get(position).getCover_images().get(0));
         iv.setImageResource(R.drawable.rhombus_mask_in_square);
-        Glide.with(context).load(productList.get(position).getCover_images().get(0))
+        Glide.with(context).load(products.get(position).getCover_images().get(0))
                 .asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).thumbnail(0.1F)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
@@ -90,10 +87,9 @@ public class YouWuProductListAdapter extends BaseAdapter{
                         ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
                         layoutParams.height = mHeight;
                         iv.setLayoutParams(layoutParams);
-                        if(iv.getTag() != null && iv.getTag().equals(productList.get(position).getCover_images().get(0))){
+                        if(iv.getTag() != null && iv.getTag().equals(products.get(position).getCover_images().get(0))){
                             iv.setImageBitmap(resource);
                         }
-
                     }
                 });
         AssetManager assets = context.getAssets();
@@ -101,11 +97,11 @@ public class YouWuProductListAdapter extends BaseAdapter{
         Typeface fromAsset2 = Typeface.createFromAsset(assets, "fonts/FZLanTingHeiS_Regular.otf");
         viewHolder.productNameView.setTypeface(fromAsset2);
         viewHolder.authorNameView.setTypeface(fromAsset);
-        viewHolder.productNameView.setText(productList.get(position).getName());
-        Glide.with(context).load(productList.get(position).getDesigner().getAvatar_url())
+        viewHolder.productNameView.setText(products.get(position).getName());
+        Glide.with(context).load(products.get(position).getDesigner().getAvatar_url())
                 .diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.authorImgView);
-        viewHolder.authorNameView.setText(productList.get(position).getDesigner().getName());
-        viewHolder.authorDescriptionView.setText(productList.get(position).getDesigner().getLabel());
+        viewHolder.authorNameView.setText(products.get(position).getDesigner().getName());
+        viewHolder.authorDescriptionView.setText(products.get(position).getDesigner().getLabel());
         return convertView;
     }
 

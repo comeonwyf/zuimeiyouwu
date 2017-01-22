@@ -51,18 +51,8 @@ public class JsonUtil {
     /**
      * 获得有物产品列表的方法
      */
-    public static List<ProductListEntity> getProductListByJSON(String json){
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            JSONObject data = jsonObject.getJSONObject("data");
-            JSONArray jsonArray = data.getJSONArray("products");
-            Gson gson = new Gson();
-            TypeToken<List<ProductListEntity>> tt = new TypeToken<List<ProductListEntity>>(){};
-            return gson.fromJson(jsonArray.toString(), tt.getType());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public static ProductListEntity getProductListByJSON(String json){
+        return new Gson().fromJson(json,ProductListEntity.class);
     }
 
     /**
