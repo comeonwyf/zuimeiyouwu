@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import com.qf.project.zuimeiyouwu.Entity.DesignerEntity;
 import com.qf.project.zuimeiyouwu.Entity.HuaBaoContentEntity;
+import com.qf.project.zuimeiyouwu.Entity.ProductDetailsEntity;
 import com.qf.project.zuimeiyouwu.Entity.ProductListEntity;
 import com.qf.project.zuimeiyouwu.Entity.TabEntity;
 
@@ -53,6 +54,13 @@ public class JsonUtil {
      */
     public static ProductListEntity getProductListByJSON(String json){
         return new Gson().fromJson(json,ProductListEntity.class);
+    }
+
+    /**
+     * 获得有物产品详情的方法
+     */
+    public static ProductDetailsEntity getProductDeatailsByJSON(String json){
+        return new Gson().fromJson(json,ProductDetailsEntity.class);
     }
 
     /**

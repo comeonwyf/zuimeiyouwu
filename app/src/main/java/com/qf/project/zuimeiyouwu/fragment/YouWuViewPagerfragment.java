@@ -1,6 +1,7 @@
 package com.qf.project.zuimeiyouwu.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.qf.chenhao.mr_chenlibrary.base.BaseFragment;
 import com.qf.project.zuimeiyouwu.Entity.ProductListEntity;
 import com.qf.project.zuimeiyouwu.Entity.TabEntity;
 import com.qf.project.zuimeiyouwu.R;
+import com.qf.project.zuimeiyouwu.activity.ProductDetailsActivity;
 import com.qf.project.zuimeiyouwu.adapter.YouWuProductListAdapter;
 import com.qf.project.zuimeiyouwu.util.Constant;
 import com.qf.project.zuimeiyouwu.util.JsonUtil;
@@ -90,6 +92,10 @@ public class YouWuViewPagerfragment extends BaseFragment implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ProductListEntity.DataEntity.ProductsEntity productsEntity= (ProductListEntity.DataEntity.ProductsEntity) productAdapter.getItem(position);
+                Intent intent = new Intent(getContext(), ProductDetailsActivity.class);
+                intent.putExtra("datas",productsEntity);
+                startActivity(intent);
+
             }
         });
     }

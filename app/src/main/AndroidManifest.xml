@@ -11,11 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
-            >
-        </activity>
-        <activity android:name=".activity.Welcome">
-        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.Welcome"></activity>
         <activity android:name=".activity.GuideVideoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Setting"/>
-        <activity android:name=".activity.XieYiActivity"/>
-        <activity android:name=".activity.HuaBaoContent"/>
+        <activity android:name=".activity.Setting" />
+        <activity android:name=".activity.XieYiActivity" />
+        <activity android:name=".activity.HuaBaoContent" />
+        <activity android:name=".activity.ProductDetailsActivity"></activity>
     </application>
-
 
 </manifest>
