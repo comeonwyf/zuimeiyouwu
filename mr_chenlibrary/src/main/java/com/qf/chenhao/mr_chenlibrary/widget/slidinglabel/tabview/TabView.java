@@ -90,7 +90,7 @@ public class TabView extends LinearLayout {
 
             @Override
             public void onPageSelected(int position) {
-                position = LoopViewPager.toRealPosition(position, count);
+//                position = LoopViewPager.toRealPosition(position, count);
 
                 //将原来选中的 资源换成未被选中的资源
                 ImageView iv = (ImageView) findViewWithTag("checked");

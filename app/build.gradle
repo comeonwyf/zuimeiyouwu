@@ -27,4 +27,5 @@ dependencies {
     compile project(':deckview')
     compile files('libs/Volley.jar')
     compile files('libs/jsoup-1.8.3.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

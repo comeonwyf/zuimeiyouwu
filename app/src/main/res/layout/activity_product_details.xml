@@ -12,7 +12,8 @@
         android:src="@drawable/ic_circle_back_normal"/>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -65,71 +66,14 @@
             </LinearLayout>
 
             <!--产品功能简介-->
-            <LinearLayout
-                android:orientation="vertical"
+            <ListView
+                android:id="@+id/listview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:id="@+id/iv1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
-                    <TextView
-                        android:id="@+id/tv1"
-                        android:padding="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="xxx"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:id="@+id/iv2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
-                    <TextView
-                        android:id="@+id/tv2"
-                        android:padding="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="xxx"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:id="@+id/iv3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
-                    <TextView
-                        android:id="@+id/tv3"
-                        android:padding="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="xxx"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="0dp"></ListView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:background="@color/product_bg_text_black"/>
-
-
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
