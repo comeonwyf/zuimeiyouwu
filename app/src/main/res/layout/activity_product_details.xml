@@ -5,14 +5,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.qf.project.zuimeiyouwu.activity.ProductDetailsActivity">
-    <ImageView
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_circle_back_normal"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/product_bg_text_black"
         android:fillViewport="true">
         <LinearLayout
             android:orientation="vertical"
@@ -66,14 +63,125 @@
             </LinearLayout>
 
             <!--产品功能简介-->
-            <ListView
-                android:id="@+id/listview"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="#FFFFFF"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"></ListView>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:text="产品名称"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_wish"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="+ 心愿单"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--产品描述情况1-->
+            <TextView
+                android:id="@+id/productDescTV"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--产品描述情况2-->
+            <LinearLayout
+                android:id="@+id/container_ll"
+                android:visibility="gone"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--产品描述1-->
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitXY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!--产品描述2-->
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv2"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:scaleType="fitXY"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!--产品描述3-->
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv3"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:background="@color/product_bg_text_black"/>
+            <!--产品材质-->
+            <WebView
+                android:id="@+id/webview_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></WebView>
+            <include layout="@layout/youwu_content_main"></include>
         </LinearLayout>
     </ScrollView>
+    <ImageView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_circle_back_normal"/>
 </FrameLayout>
