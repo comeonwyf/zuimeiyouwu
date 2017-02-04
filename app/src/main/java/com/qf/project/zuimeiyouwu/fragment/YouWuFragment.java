@@ -144,13 +144,15 @@ public class YouWuFragment extends BaseFragment{
             titleView.setTextColor(Color.parseColor("#ffffffff"));
             titleView.setAlpha(0.5f);
             titleView.setGravity(Gravity.CENTER);
-            titleView.setWidth(110);
+
+            titleView.setWidth(200);
+
             if(i==0){
                 titleView.setAlpha(1);
             }
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             if(i != tabEntityList.size()-1){
-                params.rightMargin = screenWidth/35;
+                    params.rightMargin = screenWidth/35;
                 titleView.setTextColor(Color.parseColor("#ffffffff"));
             }
             titleView.setLayoutParams(params);

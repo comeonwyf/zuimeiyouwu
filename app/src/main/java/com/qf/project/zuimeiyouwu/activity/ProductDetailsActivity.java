@@ -2,6 +2,7 @@ package com.qf.project.zuimeiyouwu.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 
 import android.content.res.AssetManager;
@@ -12,11 +13,13 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -43,12 +46,14 @@ import com.qf.project.zuimeiyouwu.util.JsonUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import okhttp3.Call;
 
-public class ProductDetailsActivity extends BaseActivity {
+public class ProductDetailsActivity extends BaseActivity implements View.OnClickListener {
 
     private String TAG = "print";
     private ProductListEntity.DataEntity.ProductsEntity productsEntity;
@@ -64,7 +69,22 @@ public class ProductDetailsActivity extends BaseActivity {
     private WebView webView;
     private TextView productDescTV;
     private LinearLayout container_ll;
-
+    private ImageView authorLog;
+    private TextView authorName;
+    private TextView authorLabel;
+    private TextView authorDesc;
+    private TextView authorDesc2;
+    private TextView shouqi;
+    private TextView zhankai;
+    private Typeface fromAsset;
+    private GridView gridView;
+    private int screenWidth;
+    private String authorDescString;
+    private ListView listView;
+    private TextView commentsNum;
+    private List<ProductDetailsEntity.DataEntity.CommentsEntity> commentsEntities;
+    @Bind(R.id.product_back)
+    public ImageView backIv;
     @Override
     protected int getContentId() {
         return R.layout.activity_product_details;
@@ -77,6 +97,9 @@ public class ProductDetailsActivity extends BaseActivity {
 
     @Override
     protected void init() {
+        screenWidth = ScreenUtil.getScreenWidth(this);
+        AssetManager assets = getAssets();
+        fromAsset = Typeface.createFromAsset(assets, "fonts/FZLanTingHeiS_Bold.otf");
         Intent intent = getIntent();
         productsEntity = (ProductListEntity.DataEntity.ProductsEntity) intent.getSerializableExtra("datas");
         rollPagerView = findViewByIds(R.id.rollpagerview);
@@ -91,7 +114,22 @@ public class ProductDetailsActivity extends BaseActivity {
         productDescTV = findViewByIds(R.id.productDescTV);
         container_ll = findViewByIds(R.id.container_ll);
         webView = findViewByIds(R.id.webview_id);
+        //设计师和作品
+        authorLog = findViewByIds(R.id.author_log);
+        authorName = findViewByIds(R.id.author_name);
+        authorLabel = findViewByIds(R.id.author_label);
+        authorDesc = findViewByIds(R.id.author_description);
+        authorDesc2 = findViewByIds(R.id.author_description2);
+        shouqi = findViewByIds(R.id.shouqi);
+        zhankai = findViewByIds(R.id.zhankai);
+        shouqi.setOnClickListener(this);
+        zhankai.setOnClickListener(this);
+        gridView = findViewByIds(R.id.gridview);
 
+        commentsNum = findViewByIds(R.id.commentsnum);
+        listView = findViewByIds(R.id.listview);
+
+        backIv.setOnClickListener(this);
     }
 
     @Override
@@ -111,8 +149,6 @@ public class ProductDetailsActivity extends BaseActivity {
                 //设置广告轮播页
                 setBanner(productDetailsEntity.getData().getCover_images());
                 //设置产品名称
-                AssetManager assets = getAssets();
-                Typeface fromAsset = Typeface.createFromAsset(assets, "fonts/FZLanTingHeiS_Bold.otf");
                 productName.setTypeface(fromAsset);
                 productName.setText(productDetailsEntity.getData().getName());
 
@@ -127,10 +163,51 @@ public class ProductDetailsActivity extends BaseActivity {
 
                 //设置产品材质
                 setWebview(productDetailsEntity.getData().getDetail_url());
+
+                //设置设计师和作品
+                setAuthorAndProduct(productDetailsEntity.getData().getDesigner());
+                setGlidView(productDetailsEntity.getData().getRefer_products());
+
+                //设置评论
+                setComments(productDetailsEntity.getData().getComment_num(),productDetailsEntity.getData().getComments());
             }
         });
     }
 
+    private void setComments(int comment_num, List<ProductDetailsEntity.DataEntity.CommentsEntity> comments) {
+        commentsNum.setText("评论("+comment_num+")");
+        commentsEntities = comments;
+        if(comments.size()>6){
+            List<ProductDetailsEntity.DataEntity.CommentsEntity> list = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                list.add(comments.get(i));
+            }
+            commentsEntities.clear();
+            commentsEntities.addAll(list);
+        }
+        ListViewAdapter listViewAdapter = new ListViewAdapter(this,commentsEntities);
+        listView.setAdapter(listViewAdapter);
+        View inflate = getLayoutInflater().inflate(R.layout.item_footer_comments, null);
+        listView.addFooterView(inflate);
+    }
+
+    //设置设计师和作品
+    private void setGlidView(List<ProductDetailsEntity.DataEntity.ReferProductsEntity> refer_products) {
+        gridView.setNumColumns(2);
+        gridView.setColumnWidth((int) (screenWidth*0.5));
+        MyAdapter adapter = new MyAdapter(this,refer_products);
+        gridView.setAdapter(adapter);
+    }
+    private void setAuthorAndProduct(ProductDetailsEntity.DataEntity.DesignerEntity designer) {
+        Glide.with(this).load(designer.getAvatar_url()).into(authorLog);
+        authorName.setTypeface(fromAsset);
+        authorName.setText(designer.getName());
+        authorLabel.setText(designer.getLabel());
+        authorDesc2.setText(designer.getDescription());
+        authorDescString = designer.getDescription();
+    }
+
+    //设置产品材质
     private void setWebview(String detail_url) {
         //返回适合手机端浏览的页面：支持JS
         webView.getSettings().setJavaScriptEnabled(true);
@@ -201,7 +278,6 @@ public class ProductDetailsActivity extends BaseActivity {
                 int mHeight = (int) (((float) screenWidth / width) * height);
                 ViewGroup.LayoutParams layoutParams = rollPagerView.getLayoutParams();
                 layoutParams.height = mHeight;
-                Log.e(TAG, "onResourceReady: " + mHeight);
                 rollPagerView.setLayoutParams(layoutParams);
                 RollPagerViewAdapter adapter = new RollPagerViewAdapter(cover_images);
                 rollPagerView.setAdapter(adapter);
@@ -213,4 +289,127 @@ public class ProductDetailsActivity extends BaseActivity {
 
     }
 
+    //展开和收起的监听
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.shouqi){
+            authorDesc2.setVisibility(View.VISIBLE);
+            authorDesc.setVisibility(View.GONE);
+            zhankai.setVisibility(View.VISIBLE);
+            shouqi.setVisibility(View.GONE);
+            authorDesc.setText(authorDescString);
+        }else if(v.getId()==R.id.zhankai){
+            authorDesc2.setVisibility(View.GONE);
+            authorDesc.setVisibility(View.VISIBLE);
+            zhankai.setVisibility(View.GONE);
+            shouqi.setVisibility(View.VISIBLE);
+            authorDesc.setText(authorDescString);
+        }else if(v.getId()==R.id.product_back){//返回图标监听
+            finish();
+        }
+    }
+
+    private class MyAdapter extends BaseAdapter{
+        private  List<ProductDetailsEntity.DataEntity.ReferProductsEntity> refer_products;
+        private  Context context;
+
+        public MyAdapter(Context context, List<ProductDetailsEntity.DataEntity.ReferProductsEntity> refer_products) {
+            this.context = context;
+            this.refer_products = refer_products;
+        }
+
+        @Override
+        public int getCount() {
+            return refer_products.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return refer_products.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+            if(convertView == null){
+                viewHolder = new ViewHolder();
+                convertView = getLayoutInflater().inflate(R.layout.item_gridview2_layout,null);
+                viewHolder.imageView = (ImageView) convertView.findViewById(R.id.products_iv);
+                convertView.setTag(viewHolder);
+            }else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+            ImageView imageView = viewHolder.imageView;
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            layoutParams.width = (int) (screenWidth*0.5);
+            layoutParams.height = (int) (screenWidth*0.5);
+            imageView.setLayoutParams(layoutParams);
+            Glide.with(context).load(refer_products.get(position).getCover_images().get(0)).into(imageView);
+            return convertView;
+        }
+        class ViewHolder{
+            ImageView imageView;
+        }
+    }
+
+
+    private class ListViewAdapter extends BaseAdapter {
+        private  List<ProductDetailsEntity.DataEntity.CommentsEntity> commentsEntities;
+        private  Context context;
+
+        public ListViewAdapter(Context context, List<ProductDetailsEntity.DataEntity.CommentsEntity> commentsEntities) {
+            this.context = context;
+            this.commentsEntities = commentsEntities;
+        }
+
+        @Override
+        public int getCount() {
+            return commentsEntities.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return commentsEntities.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+            if(convertView == null){
+                viewHolder = new ViewHolder();
+                convertView = getLayoutInflater().inflate(R.layout.item_listview_comments,null);
+                viewHolder.commenterLog = (ImageView) convertView.findViewById(R.id.commenterlog);
+                viewHolder.comenterName = (TextView) convertView.findViewById(R.id.commentername);
+                viewHolder.commentTime = (TextView) convertView.findViewById(R.id.commentTime);
+                viewHolder.commentContent = (TextView) convertView.findViewById(R.id.commentcontent);
+                convertView.setTag(viewHolder);
+            }else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+            Glide.with(context).load(commentsEntities.get(position).getAuthor().getAvatar_url())
+            .diskCacheStrategy(DiskCacheStrategy.ALL).thumbnail(0.1f).into(viewHolder.commenterLog);
+            long time = commentsEntities.get(position).getCreated_at();
+            SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+            String format = sdf.format(time);
+            viewHolder.commentTime.setText(format);
+            viewHolder.comenterName.setText(commentsEntities.get(position).getAuthor().getUsername());
+            viewHolder.commentContent.setText(commentsEntities.get(position).getContent());
+            return convertView;
+        }
+        class ViewHolder{
+            ImageView commenterLog;
+            TextView comenterName,commentTime,commentContent;
+
+        }
+    }
 }

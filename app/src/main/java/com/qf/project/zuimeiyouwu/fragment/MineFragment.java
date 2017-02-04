@@ -112,7 +112,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.xieyi:
                 startActivity(new Intent(getActivity(), XieYiActivity.class));
-
                 break;
         }
     }

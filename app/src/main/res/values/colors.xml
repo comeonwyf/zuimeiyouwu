@@ -11,4 +11,8 @@
     <color name="tab_subtitle_bg_black">#1d1c1c</color>
     <color name="product_nametext_white">#9A9A9A</color>
     <color name="product_bg_text_black">#050404</color>
+    <!--关注的背景色-->
+    <color name="guangzhu_textcolor">#75D4DA</color>
+    <!--展开和收起的字体颜色-->
+    <color name="my_green">#39B978</color>
 </resources>

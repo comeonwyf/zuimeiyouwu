@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,17 +105,38 @@ public class YouWuViewPagerfragment extends BaseFragment implements View.OnClick
     protected void getDatas(Bundle bundle) {
         entity = (TabEntity) bundle.getSerializable("datas");
         if(entity.getName().equals("Daily")){//daily界面
-            pinnedListview.setVisibility(View.VISIBLE);
+//            pinnedListview.setVisibility(View.VISIBLE);
             subtitlesContainer.setVisibility(View.GONE);
-            listView.setVisibility(View.GONE);
+//            listView.setVisibility(View.GONE);
+            String currentTimeMillis = System.currentTimeMillis()+"";
+            getAndsetDaily(currentTimeMillis);
         }else {//其他界面
-            if(entity.getName().equals("Men")){
+            if(entity.getName().equals("Men")||entity.getName().equals("最美人物种草合集")){
                 subtitlesContainer.setVisibility(View.GONE);
             }
             //获得数据并设置适配器
             getAndsetData(entity.getId(),page);
         }
     }
+
+    private void getAndsetDaily(String currentTimeMillis) {
+        String url = String.format(Constant.DAILY_DETAILS_URL,currentTimeMillis);
+        OkHttpUtils.get().url(url).build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+            }
+            @Override
+            public void onResponse(String response, int id) {
+                //获得产品列表
+                ProductListEntity productListEntity = JsonUtil.getProductListByJSON(response);
+                YouWuViewPagerfragment.this.list.addAll(productListEntity.getData().getProducts());
+                productAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+
+    //获得数据并设置适配器
     private void getAndsetData(int id,int page) {
         String url = String.format(Constant.TAB_DETAILS_BEFORE_URL,id,page);
         OkHttpUtils.get().url(url).build().execute(new StringCallback() {

@@ -98,7 +98,7 @@
             <!--产品描述情况1-->
             <TextView
                 android:id="@+id/productDescTV"
-                android:layout_margin="10dp"
+                android:padding="10dp"
                 android:background="#FFFFFF"
                 android:visibility="gone"
                 android:layout_width="match_parent"
@@ -113,7 +113,7 @@
                 android:orientation="vertical">
                 <!--产品描述1-->
                 <LinearLayout
-                    android:layout_margin="10dp"
+                    android:padding="10dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -131,7 +131,7 @@
                 </LinearLayout>
                 <!--产品描述2-->
                 <LinearLayout
-                    android:layout_margin="10dp"
+                    android:padding="10dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -176,12 +176,67 @@
                 android:id="@+id/webview_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></WebView>
+
             <include layout="@layout/youwu_content_main"></include>
+
         </LinearLayout>
     </ScrollView>
     <ImageView
+        android:id="@+id/product_back"
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_circle_back_normal"/>
+    <ImageView
+        android:padding="10dp"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share"/>
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:padding="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ease_default_avatar"
+             />
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="#dddddd"
+            android:gravity="center"
+            android:text="说点什么吧.."/>
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/commentsiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/article_comment_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/commentsiv"
+                android:text="8"/>
+        </RelativeLayout>
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="#F22844"
+            android:textColor="#fff"
+            android:text="品牌官网"/>
+    </LinearLayout>
 </FrameLayout>

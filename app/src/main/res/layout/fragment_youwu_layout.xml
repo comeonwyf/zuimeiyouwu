@@ -7,6 +7,7 @@
     <!--导航控件-->
     <HorizontalScrollView
         android:id="@+id/actionbar"
+        android:scrollbars="none"
         android:background="@color/tab_bg_black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

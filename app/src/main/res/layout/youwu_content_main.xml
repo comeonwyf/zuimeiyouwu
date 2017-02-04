@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@color/product_bg_text_black"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <!--设计师作品-->
     <LinearLayout
         android:orientation="vertical"
@@ -45,6 +45,8 @@
             android:background="#ffffff"
             android:layout_height="wrap_content">
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/author_log"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -52,18 +54,101 @@
                 android:src="@mipmap/ic_launcher"/>
             <TextView
                 android:id="@+id/author_name"
+                android:layout_marginBottom="5dp"
                 android:layout_gravity="center"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="name"/>
             <TextView
                 android:id="@+id/author_label"
+                android:layout_marginBottom="10dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="label"/>
+            <TextView
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/guangzhu_textcolor"
+                android:textStyle="bold"
+                android:text="+ 关注"/>
+            <!--作者介绍-->
+            <TextView
+                android:id="@+id/author_description"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/author_description2"
+                android:padding="10dp"
+                android:lines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--展开和收起-->
+            <TextView
+                android:id="@+id/shouqi"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:drawableBottom="@drawable/icon_unfold"
+                android:textColor="@color/my_green"
+                android:textSize="12sp"
+                android:text="收起"/>
+            <TextView
+                android:id="@+id/zhankai"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:padding="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/icon_fold"
+                android:textColor="@color/my_green"
+                android:text="展开"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/product_bg_text_black"/>
+
         </LinearLayout>
 
+        <com.qf.project.zuimeiyouwu.util.MyGridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </com.qf.project.zuimeiyouwu.util.MyGridView>
+        <!--评论-->
+        <LinearLayout
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/commentsnum"
+                android:paddingTop="14dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/product_nametext_white"
+                android:text="评论(3)"/>
+            <com.qf.project.zuimeiyouwu.util.MyListView
+                android:id="@+id/listview"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.qf.project.zuimeiyouwu.util.MyListView>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
     </LinearLayout>
 </LinearLayout>
